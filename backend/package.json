@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:api": "npx sequelize-cli db:migrate --env development && npx nodemon app.js"
+    "start": "npx sequelize-cli db:migrate --env development && npx nodemon app.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -12,9 +12,7 @@
     "mysql2": "^3.3.3",
     "node": "^20.2.0",
     "nodemon": "^2.0.22",
-    "sequelize": "^6.32.0"
-  },
-  "devDependencies": {
+    "sequelize": "^6.32.0",
     "sequelize-cli": "^6.6.0"
   }
 }
