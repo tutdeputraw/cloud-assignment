@@ -10,11 +10,17 @@ sequelize.sync().then(() => {
 const express = require('express');
 const app = express();
 
+app.use(express.static('public'));
+
 // app.use(cors());
 app.use(express.json());
 
 app.get('/', async (req, res) => {
     res.json({ status: 'OK' });
+});
+
+app.get('/dashboard', async (req, res) => {
+    res.sendFile(__dirname + '/pages/dashboard.html');
 });
 
 app.get('/todos', async (req, res) => {

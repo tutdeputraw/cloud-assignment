@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>TODO App</title>
+</head>
+
+<body>
+    <h1>TODO App</h1>
+    <input type="text" id="newTodoInput" />
+    <button id="addTodoButton">Add</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const todos = [];
+            const newTodoInput = document.getElementById("newTodoInput");
+            const addTodoButton = document.getElementById("addTodoButton");
+            const todoList = document.getElementById("todoList");
+
+            addTodoButton.addEventListener("click", function () {
+                const newTodo = newTodoInput.value.trim();
+                if (newTodo !== '') {
+                    const todo = { id: todos.length + 1, title: newTodo };
+                    todos.push(todo);
+                    renderTodoList();
+                    newTodoInput.value = '';
+                }
+            });
+
+            function renderTodoList() {
+                todoList.innerHTML = '';
+                todos.forEach(function (todo) {
+                    const li = document.createElement("li");
+                    li.innerText = todo.title;
+                    todoList.appendChild(li);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
